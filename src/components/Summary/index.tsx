@@ -19,7 +19,7 @@ export default function Summary(){
           <p>Saídas</p>
           <img src={outcomeImg} alt="saídas" />
         </header>
-        <strong>R$ 500,00</strong>
+        <strong>R$ -500,00</strong>
       </div>
 
       <div className="highlight-total">

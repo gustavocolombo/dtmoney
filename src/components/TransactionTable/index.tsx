@@ -1,9 +1,15 @@
+import { useEffect } from 'react';
 import { Container } from './styles';
+import api from '../../services/api';
 
-//colocamos a table dentro do container pra ela ser um elemento 
-//de dentro do dashboard e se precisarmos colocar algo em cima ou embaixo da tabela fica mais fácil
 
 export default function TransactionTable(){
+  
+  useEffect(()=>{
+   api.get('transactions').then(data => console.log(data))
+
+  },[]);
+
   return(
     <Container>
       <table>
