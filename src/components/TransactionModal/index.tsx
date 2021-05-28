@@ -1,6 +1,8 @@
 import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg';
-import { Container } from './styles';
+import incomeimg from '../../assets/income.svg';
+import outcomeimg from '../../assets/outcome.svg';
+import { Container, ContainerGrid } from './styles';
 
 interface TransactionModalProps{
   isOpen : boolean;
@@ -16,15 +18,28 @@ export default function TransactionModal({isOpen, onRequestClose}: TransactionMo
       className="react-modal-content"
     >
 
-      <button type="button">
-        <img src={closeImg} alt="fechar modal" onClick={onRequestClose} className="react-modal-close"/>
+      <button type="button" className="close-modal" onClick={onRequestClose}>
+        <img src={closeImg} alt="fechar modal" />
       </button>
 
       <Container>
         <h2>Cadastrar Transação</h2>
 
         <input type="text" placeholder="Título"/>
-        <input type="number" placeholder="Valor" />
+        <input type="number" placeholder="Valor"/>
+        
+        <ContainerGrid>
+          <button type="button">
+            <img src={incomeimg} alt="entrada" />
+            Entrada
+          </button>
+
+          <button type="button">
+            <img src={outcomeimg} alt="saida" />
+            Saída
+          </button>
+        </ContainerGrid>
+
         <input type="text" placeholder="Categoria" />
 
         <button type="submit">
