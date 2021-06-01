@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { transparentize, darken } from 'polished';
 
 export const Container = styled.form`
   h2{
@@ -67,5 +68,15 @@ export const ContainerGrid = styled.div`
     color: var(--text-title);
     border-radius: 0.30rem;
     border: 1px solid #d7d7d7;
+  }
+
+  .active{
+    background: ${transparentize(0.9, 'green')} ;
+    border-color: ${darken(0.01, 'green')}
+  }
+
+  .not-active{
+    background: ${transparentize(0.9, 'red')} ;
+    border-color: ${darken(0.01, 'red')}
   }
 `;

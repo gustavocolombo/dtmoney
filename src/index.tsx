@@ -12,6 +12,7 @@ createServer({
         {
           id: 1,
           description: 'sale',
+          type:'deposit',
           date: new Date(),
           amount: 400,
           category: 'action figures'

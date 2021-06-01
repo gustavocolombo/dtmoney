@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg';
 import incomeimg from '../../assets/income.svg';
@@ -10,6 +11,9 @@ interface TransactionModalProps{
 }
 
 export default function TransactionModal({isOpen, onRequestClose}: TransactionModalProps){
+  
+  const [typeButton, setTypeButton] = useState('deposit');
+
   return(
     <Modal
       isOpen={isOpen}
@@ -29,12 +33,18 @@ export default function TransactionModal({isOpen, onRequestClose}: TransactionMo
         <input type="number" placeholder="Valor"/>
         
         <ContainerGrid>
-          <button type="button">
+          <button type="button" 
+            className={typeButton === 'deposit' ? 'active' : ''}
+            onClick={()=> setTypeButton('deposit')}
+            >
             <img src={incomeimg} alt="entrada" />
             Entrada
           </button>
 
-          <button type="button">
+          <button type="button" 
+          className={typeButton === 'withdraw' ? 'not-active' : ''}
+          onClick={()=> setTypeButton('withdraw')}
+          >
             <img src={outcomeimg} alt="saida" />
             Saída
           </button>
