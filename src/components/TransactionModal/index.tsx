@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import closeImg from '../../assets/close.svg';
 import incomeimg from '../../assets/income.svg';
 import outcomeimg from '../../assets/outcome.svg';
+import api from '../../services/api';
 import { Container, ContainerGrid } from './styles';
 
 interface TransactionModalProps{
@@ -20,9 +21,11 @@ export default function TransactionModal({isOpen, onRequestClose}: TransactionMo
   function handleSubmitTransaction(event: FormEvent){
     event.preventDefault();
 
-    console.log({
+    const data = {
       title, value, category
-    })
+    }
+
+    api.post('/transactions', data)
   }
 
   return(
