@@ -3,6 +3,7 @@ import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import { useState } from 'react';
 import { GlobalStyle } from './styles/global';
+import { TransactionsProvider } from './TransactionsContext';
 import TransactionModal from './components/TransactionModal';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
   }
   
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenTransactionModal={handleOpenTransactionModal}/>
         
         <TransactionModal
@@ -27,7 +28,7 @@ function App() {
 
         <Dashboard/>
       <GlobalStyle/>
-    </>
+    </TransactionsProvider>
   );
 }
 
